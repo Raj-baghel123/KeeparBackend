@@ -6,7 +6,9 @@ const cors = require('cors');
 const app = express();
 
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors({
+  origin: 'https://effortless-smakager-283501.netlify.app'
+}));
 
 const DB = "mongodb+srv://baghelraj662:keepar@cluster0.m7exz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
