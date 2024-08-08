@@ -7,7 +7,9 @@ const app = express();
 const frontend_url = process.env.frontend || 'http://localhost:3000';
 app.use(bodyParser.json());
 app.use(cors({
-  origin: frontend_url
+  origin: frontend_url,
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  credentials: true, // This allows cookies to be sent and received from the frontend
 }));
 
 const DB = process.env.DB_url;
