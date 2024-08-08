@@ -10,7 +10,7 @@ app.use(cors({
   origin: frontend_url
 }));
 
-const DB = "mongodb+srv://baghelraj662:keepar@cluster0.m7exz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const DB = process.env.DB_url;
 
 //mongoose.connect('mongodb://127.0.0.1:27017/notesDB');
 mongoose.connect(DB).then(()=>{
@@ -52,7 +52,7 @@ app.delete('/notes/:id', async (req, res) => {
   await Note.findByIdAndDelete(id);
   res.json({ message: 'Note deleted' });
 });
-
-app.listen(5000, () => {
+const port_no = process.env.port || 5000;
+app.listen(port_no, () => {
   console.log('Server is running on port 5000');
 });
