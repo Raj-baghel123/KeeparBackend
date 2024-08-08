@@ -4,10 +4,10 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const app = express();
-
+const frontend_url = process.env.frontend || 'http://localhost:3000';
 app.use(bodyParser.json());
 app.use(cors({
-  origin: 'https://effortless-smakager-283501.netlify.app'
+  origin: frontend_url
 }));
 
 const DB = "mongodb+srv://baghelraj662:keepar@cluster0.m7exz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
